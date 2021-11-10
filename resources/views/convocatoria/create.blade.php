@@ -73,7 +73,7 @@
         <div class= "row">
             
         
-            <form action= "{{route('convocatoria.store')}}" method="POST" enctype="multipart/form-data" >
+            <form action= "{{route('vistaPrincipal')}}" method="POST" enctype="multipart/form-data" >
                 
                 @csrf
 

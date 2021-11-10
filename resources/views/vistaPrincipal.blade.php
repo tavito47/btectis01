@@ -72,7 +72,8 @@
                         </a>
 
                         <ul class="nav col-10 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                            <li><a href="#" class="nav-link px-2 text-black">Registrar Grupo-Empresa</a></li>
+                            <li><a href="/pliegos/create" class="nav-link px-2 text-black">Registrar Grupo-Empresa</a></li>
+                            <li><a href="/convocatoria/create" class="nav-link px-2 text-blue">Convocatoria</a></li>
                             <li><a href="#" class="nav-link px-2 text-blue">Caledario</a></li>
                             <li><a href="#" class="nav-link px-2 text-blue">Grupo-Empresa</a></li>
                             <li><a href="#" class="nav-link px-2 text-blue">Contactos</a></li>
@@ -93,9 +94,6 @@
 
         </header>  
         <main>
-
-            
-
 
             <!-- Marketing messaging and featurettes
             ================================================== -->

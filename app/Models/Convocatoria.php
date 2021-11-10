@@ -15,4 +15,19 @@ class Convocatoria extends Model
         'semestre',
         'documento'
     ];
+
+    //mutator 
+    public function getPathFileAttribute(){
+        if ($this->documento) {
+            if (substr($this->documentov, 0, 4) === "http")
+                return $this->documento;
+            return asset('Archivos').'/' . $this->documento;
+        }
+        // $path = null;
+        // if(isset($this->documento)){
+        //     $path = public_path('Archivos').'/'.($this->documento);
+        // }return $path;
+    }
+
+    
 }

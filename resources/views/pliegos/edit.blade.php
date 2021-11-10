@@ -73,7 +73,7 @@
         <div class= "row">
             
         
-            <form action= "{{ route('pliegos.update', $pliego->id) }}" method="POST" enctype="multipart/form-data" >
+            <form action= "{{ route('pliego.update', $pliego->id) }}" method="POST" enctype="multipart/form-data" >
                 @method('PATCH')
                 @csrf
 

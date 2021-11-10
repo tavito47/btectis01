@@ -15,7 +15,10 @@ class ConvocatoriaController extends Controller
     public function index()
     {
         $convocatorias=Convocatoria::all();
-        return view('convocatoria.index',compact('convocatoria'));
+        return view('convocatoria.index',compact('convocatorias'));
+
+        // $test = Convocatoria::find(1);
+        // dd($test->PathFile);
     }
 
     /**
@@ -46,6 +49,9 @@ class ConvocatoriaController extends Controller
         }
         
         Convocatoria::create($input);
+
+        $convocatorias=Convocatoria::all();
+        return view('convocatoria.index',compact('convocatorias'));
     }
 
     /**
@@ -67,8 +73,10 @@ class ConvocatoriaController extends Controller
      */
     public function edit($id)
     {
-        $convocatorias=Convocatoria::find($id);
+        $convocatoria=Convocatoria::find($id);
+        // dd($convocatoria);
         return view('convocatoria.edit',compact('convocatoria'));
+
     }
 
     /**
@@ -80,9 +88,9 @@ class ConvocatoriaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $convocatorias=Convocatoria::find($id);
-        $convocatorias->update($request->all());
-        return redirect()->route('convocatoria.index')->with('success','Category upgrade!');
+        $convocatoria=Convocatoria::find($id);
+        $convocatoria->update($request->all());
+        return redirect()->route('convocatoria.index')->with('success','convocatoria actualizada');
     }
 
     /**
@@ -93,6 +101,8 @@ class ConvocatoriaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $convocatoria=Convocatoria::find($id);
+        $convocatoria->delete();
+        return redirect()->route('convocatoria.index')->with('success','convocatoria eliminada');
     }
 }

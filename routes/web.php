@@ -19,12 +19,11 @@ Route::get('/', function () {
     return view('vistaPrincipal');
 });
 
-Route::resource("pliegos",PliegoController::class);
+Route::resource("pliego",PliegoController::class);
 
 Route::resource("convocatoria",ConvocatoriaController::class);
 
-Route::get('/vista', function () {
-    return view('vista');
-});
+Route::post('/convocatoria', [App\Http\Controllers\ConvocatoriaController::class, 'store'])->name('vistaPrincipal');
 
+Route::get('/convocatoria:get/{id}', [App\Http\Controllers\ConvocatoriaController::class, 'edit'])->name('editar');
 

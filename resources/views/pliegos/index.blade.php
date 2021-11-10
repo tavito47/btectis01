@@ -46,13 +46,16 @@
             <td>{{@$item->created_at}}</td>
             <td>{{@$item->updated_at}}</td>
             <td>
-                <a href="{{ route('pliegos.edit',$item->id)}}" class="btn btn-white btn-sm" ><i class="fas fa-edit"></i> </a>
-                <a href="#" class="btn btn-white btn-sm" ><i class="fas fa-trash-alt"></i> </a>
-                <!-- <a href="#" class="btn btn-white btn-sm" ><i class="fas fa-file-download"></i> </a> -->
-                <!-- <a class="btn btn-danger" href="Archivo/{{$item->documento}}" target="blank_">Ver Documento</a> -->
+            <form action="{{ route('pliego.destroy',$item->id) }}" method="POST">
+                        <a href="{{ route('pliego.edit',$item->id)}}" class="btn btn-white btn-sm" ><i class="fas fa-edit"></i> </a>
+
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-white btn-sm"><i class="fas fa-trash-alt"></i></button>
+                       </form>
             </td>
             <td>
-            <a class="btn btn-danger" href="Archivo/{{$item->documento}}" target="blank_">Ver Documento</a>
+            <a href= "{{@$item->PathFile}} " class="btn btn-danger" target="_blank">Ver Documento</a>
             </td>
         </tr>
       @endforeach
@@ -61,5 +64,6 @@
   </tbody>
 
 </table>
+    <a class="btn btn-danger" href="{{ route('pliego.create') }}" target="blank_">RegistrarNuevo</a>
 </body>
 </html>

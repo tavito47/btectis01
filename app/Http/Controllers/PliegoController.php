@@ -48,6 +48,9 @@ class PliegoController extends Controller
             }  
             
             Pliego::create($input);
+
+            $pliegos=Pliego::all();
+        return view('pliegos.index',compact('pliegos'));
     }
 
     /**
@@ -84,7 +87,7 @@ class PliegoController extends Controller
     {
         $pliego=Pliego::find($id);
         $pliego->update($request->all());
-        return redirect()->route('pliegos.index')->with('success','Category upgrade!');
+        return redirect()->route('pliego.index')->with('success','pliego actualizado');
     }
 
     /**
@@ -95,6 +98,8 @@ class PliegoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $pliego=Pliego::find($id);
+        $pliego->delete();
+        return redirect()->route('pliego.index')->with('success','pliego eliminado');
     }
 }
